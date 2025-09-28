@@ -1,0 +1,45 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+background: #202020;
+color: #e6eef8;
+min-height: 100vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ul {
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #e6eef8;
+  padding: 0 10px 0 0;
+}
+
+.graybutton {
+  padding: 10px 15px;
+  background-color: gray;
+  margin-right: 10px;
+}
+
+.purplebutton {
+  padding: 10px 15px;
+  background-color: rgb(180, 76, 180);
+  margin-right: 10px;
+}
