@@ -9,7 +9,7 @@ export default function Home() {
             <h1 className="display-4 fw-bold">Welcome to Schedule Builder</h1>
             <div className="mt-4 d-flex flex-column align-items-center gap-3">
                 <NavLink to="/signup" className="btn btn-primary btn-lg"><Button text="Log In" classes="purplebutton" /></NavLink>
-                <NavLink to="/courses" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="graybutton" /></NavLink>
+                <NavLink to="/schedule" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="graybutton" /></NavLink>
             </div>
         </div>
     )
