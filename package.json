@@ -1,7 +1,6 @@
 {
   "name": "react-project",
   "homepage": "https://cchurch09.github.io/SDEV-255-Group-5-Final-Project/",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
