@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../resources/Boiler'
 
 
 export default function SignUp(){
@@ -15,7 +16,7 @@ export default function SignUp(){
                         <label className="form-label">Password: </label>
                         <input type="password" className="form-control" placeholder="Enter your password" required />
                     </div>
-                    <button type="button" className="btn btn-primary w-100">Login</button>
+                    <Button text="Login" classes="graybutton" />
                 </form>
             </div>
         </div>
