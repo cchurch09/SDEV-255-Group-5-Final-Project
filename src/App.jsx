@@ -1,58 +1,34 @@
-
-function Header() {
-  return (
-    <header>
-      <div>
-        <a href="/">Site Title/Logo</a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/signup">Sign Up</a></li>
-          <li><a href="/schedule">Schedule</a></li>
-        </ul>
-      </nav>
-      <div>
-        <input type="text" name="search" id="search" placeholder='Search Anything' />
-      </div>
-    </header>
-  )
-}
-
-function Footer() {
-  return (
-    <footer>
-      <div>
-        <p>&copy; Copyright 2025</p>
-      </div>
-    </footer>
-  )
-}
-
-// Reuesable Button component with customizable classes for use site wide
-function Button({href, text, classes}) {
-
-  return (
-    <>
-    <a href={href} class={classes}>{text}</a>
-    </>
-  )
-}
+import { Header, Footer } from "./resources/Boiler"
+import React from "react";
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+import About from "./pages/about"
+import Schedule from "./pages/schedule"
+import SignUp from "./pages/signup"
+import errorFound from "./pages/error";
+import Home from "./pages/home";
 
 function App() {
   return (
-  <div>
-    <Header />
-    
-    <main>
-      <h2>The rest of this site is coming soon!</h2>
-      <Button href="/signup" text="Sign Up" classes="purplebutton" />
-      <Button href="/schedule" text="View Schedule" classes="graybutton" />
-    </main>
+    <div>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/signup"
+            element={<SignUp />}
+          />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="*" element={<errorFound/>} />
+        </Routes>
+      </main>
 
-    <Footer />
-  </div>
+      <Footer />
+    </div>
   )
 }
 
