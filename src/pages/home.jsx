@@ -7,6 +7,7 @@ export default function Home() {
     return (
         <div className="text-center py-5">
             <h1 className="display-4 fw-bold">Course Builder</h1>
+            <p>Welcome to the Course Builder! Click either button below to head to the right direction.</p>
             <div className="mt-4 d-flex flex-column align-items-center gap-3">
                 <NavLink to="/signup" className="btn btn-primary btn-lg"><Button text="Log In" classes="purplebutton" /></NavLink>
                 <NavLink to="/schedule" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="graybutton" /></NavLink>

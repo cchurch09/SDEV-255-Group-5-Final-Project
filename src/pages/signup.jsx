@@ -12,10 +12,12 @@ export default function SignUp(){
                         <label className="form-label">Email: </label>
                         <input type="email" className="form-control" placeholder="Enter your email" required />
                     </div>
+                    <br></br>
                     <div className="mb-3">
                         <label className="form-label">Password: </label>
                         <input type="password" className="form-control" placeholder="Enter your password" required />
                     </div>
+                    <br></br>
                     <Button text="Login" classes="graybutton" />
                 </form>
             </div>
