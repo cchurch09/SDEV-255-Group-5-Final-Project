@@ -6,8 +6,8 @@
 }
 
 body {
-background: #202020;
-color: #e6eef8;
+background: #d8d1d1;
+color: #000000;
 min-height: 100vh;
 }
 
@@ -40,6 +40,6 @@ a {
 
 .purplebutton {
   padding: 10px 15px;
-  background-color: rgb(180, 76, 180);
+  background-color: rgb(210, 217, 253);
   margin-right: 10px;
 }
