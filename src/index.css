@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: linear-gradient(180deg, rgb(255, 255, 255), rgb(162, 168, 180));
+  background-image: linear-gradient(180deg, rgb(255, 255, 255), rgb(157, 188, 248));
   background-attachment: fixed;
   color: #000000;
   min-height: 100vh;
@@ -44,4 +44,13 @@ a {
   padding: 10px 15px;
   background-color: rgb(128, 128, 128);
   margin-right: 10px;
+}
+
+.round-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #020202;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
