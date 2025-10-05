@@ -1,10 +1,9 @@
 import React from 'react'
-import { Button } from '../resources/Boiler'
-
+import { Button } from '../resources/Boiler';
 
 export default function Schedule(){
 const courses = [
-    {id: 1, title: 'SDEV255', description: 'This is a computer course'},
+    {id: 1, title: 'SDEV255',  description: 'This is a computer course'},
     {id: 2, title: 'SCI202', description: 'This is a science course'},
     {id: 3, title: 'MATH200', description: 'This is an math course'},
 ]
