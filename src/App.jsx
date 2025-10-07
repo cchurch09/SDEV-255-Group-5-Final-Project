@@ -10,6 +10,7 @@ import SignUp from "./pages/signup"
 import ErrorFound from "./pages/error";
 import Home from "./pages/home";
 import AddCourse from "./pages/addcourse";
+import EditCourse from "./pages/editCourse";
 import Details from "./pages/details";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/addcourse" element={<AddCourse />} />
           <Route path="schedule/details/:id" element={<Details />} />
+          <Route path="schedule/edit/:id" element={<EditCourse />} />
           <Route path="*" element={<ErrorFound/>} />
         </Routes>
       </main>

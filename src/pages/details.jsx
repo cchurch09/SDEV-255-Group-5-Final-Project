@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
 import { courses, backendUrl } from "../scripts/script"
 
-// const response = await courses.fetchOne("68e1bd0f63af3d0a7babd0a2");
-// console.log(response)
 export default function Details() {
     let params = useParams()
     const [loading, setLoading] = useState(false)

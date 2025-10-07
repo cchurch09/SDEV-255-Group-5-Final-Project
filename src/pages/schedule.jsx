@@ -8,6 +8,7 @@ import { courses } from '../scripts/script';
 
 const allCourses = await courses.fetchAll()
 
+
 export default function Schedule(){
 
 
@@ -17,6 +18,8 @@ function displayCourses() {
             <div className="card-body">
                 <h4 className="card-title">{allCourses.name} - {allCourses.teacher} 
                     <NavLink to={`details/${allCourses._id}`}><button>View Details</button></NavLink>
+                    <NavLink to={`edit/${allCourses._id}`}><button>Edit Course</button></NavLink>
+                    <button onClick={() => courses.delete(allCourses._id)}>Delete Course</button>
                 </h4>
             </div>
         </div>
