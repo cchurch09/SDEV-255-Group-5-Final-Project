@@ -9,6 +9,7 @@ import Schedule from "./pages/schedule"
 import SignUp from "./pages/signup"
 import errorFound from "./pages/error";
 import Home from "./pages/home";
+import AddCourse from "./pages/addcourse";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             element={<SignUp />}
           />
           <Route path="/schedule" element={<Schedule />} />
+          <Route path="/addcourse" element={<AddCourse />} />
           <Route path="*" element={<errorFound/>} />
         </Routes>
       </main>

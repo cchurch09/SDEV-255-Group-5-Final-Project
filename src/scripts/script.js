@@ -11,6 +11,7 @@ export const courses = {
     }
   },
 
+  //requires data in form of object
   async create(courseData) {
     const response = await fetch(backendUrl, {
       method: 'POST',
