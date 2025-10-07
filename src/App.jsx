@@ -7,9 +7,10 @@ import {
 import About from "./pages/about"
 import Schedule from "./pages/schedule"
 import SignUp from "./pages/signup"
-import errorFound from "./pages/error";
+import ErrorFound from "./pages/error";
 import Home from "./pages/home";
 import AddCourse from "./pages/addcourse";
+import Details from "./pages/details";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
           />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/addcourse" element={<AddCourse />} />
-          <Route path="*" element={<errorFound/>} />
+          <Route path="schedule/details/:id" element={<Details />} />
+          <Route path="*" element={<ErrorFound/>} />
         </Routes>
       </main>
 

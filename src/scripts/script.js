@@ -1,4 +1,4 @@
-const backendUrl = 'https://group-5-final-project-backend.onrender.com/api/courses/'
+const backendUrl = 'https://group-5-final-project-backend.onrender.com/api/courses'
 
 export const courses = {
   async fetchAll() {
@@ -9,6 +9,11 @@ export const courses = {
     } catch (error) {
       console.log(error)
     }
+  },
+
+  async fetchOne(id) {
+    const response = await fetch(`${backendUrl}/${id}`)
+    return response.json()
   },
 
   //requires data in form of object

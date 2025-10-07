@@ -10,24 +10,14 @@ const allCourses = await courses.fetchAll()
 
 export default function Schedule(){
 
-//calls new page
-function viewDetails() {
-    alert("test")
-}
-
-function editCourse() {
-    
-}
-
-function deleteCourse(){
-    
-}
 
 function displayCourses() {
     const listItems = allCourses.map(allCourses => <div key={allCourses._id} className="col-md-4 mb-3">
         <div className="card h-100 bg-dark text-light">
             <div className="card-body">
-                <h4 className="card-title">{allCourses.name} - {allCourses.teacher} <button onClick={viewDetails}>View Details</button> <button onClick={editCourse}>Edit</button> <button onClick={deleteCourse}>Delete</button></h4>
+                <h4 className="card-title">{allCourses.name} - {allCourses.teacher} 
+                    <NavLink to={`details/${allCourses._id}`}><button>View Details</button></NavLink>
+                </h4>
             </div>
         </div>
     </div>)
