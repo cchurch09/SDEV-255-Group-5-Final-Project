@@ -1,4 +1,4 @@
-const backendUrl = 'https://group-5-final-project-backend.onrender.com/api/courses'
+export const backendUrl = 'https://group-5-final-project-backend.onrender.com/api/courses'
 
 export const courses = {
   async fetchAll() {

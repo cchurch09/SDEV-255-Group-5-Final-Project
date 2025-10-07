@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
-import { courses } from "../scripts/script"
+import { courses, backendUrl } from "../scripts/script"
 
+// const response = await courses.fetchOne("68e1bd0f63af3d0a7babd0a2");
+// console.log(response)
 export default function Details() {
     let params = useParams()
     const [loading, setLoading] = useState(false)
@@ -10,25 +12,20 @@ export default function Details() {
 
     useEffect(() => {
         const loadPost = async () => {
-            // Till the data is fetch using API
-            // the Loading page will show.
+            try {
             setLoading(true);
-
-            // Await make wait until that
-            // promise settles and return its result
-            const response = await courses.fetchOne(params.id)
-            thisCourse = response
-
-            // After fetching data stored it in posts state.
-            setPosts(response.data);
-
-            // Closed the loading page
-            setLoading(false);
+            const response = await fetch(`${backendUrl}/${params.id}`)
+            const thisCourse = await response.json()
+            setPosts(thisCourse);
+          } catch (err) {
+            console.log(err)
+          } finally {
+            setLoading(false)
+          }
         };
 
-        // Call the function
         loadPost();
-    }, []);
+    }, [10000]);
 
     return (
         <>
@@ -36,7 +33,8 @@ export default function Details() {
                 {loading ? (
                     <h1>Loading...</h1>
                 ) : (
-                    <h1>{thisCourse.name}</h1>
+                    <h1>{posts.name}</h1>
+                  
                 )}
             </div>
         </>
