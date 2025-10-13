@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { Button } from '../resources/Boiler';
-import campus1 from '../photos/campus1.jpg';
-import office1 from '../photos/office1.jpg';
-import professor1 from '../photos/professor1.jpg';
+import { NavLink } from 'react-router-dom'
+import { Button } from '../resources/Boiler'
+import campus1 from '../photos/campus1.jpg'
+import office1 from '../photos/office1.jpg'
+import professor1 from '../photos/professor1.jpg'
 
 export default function Home() {
     return (
