@@ -1,25 +1,24 @@
 import React from 'react'
-import { Button } from '../resources/Boiler'
 
 
-export default function SignUp(){
+export default function SignUp() {
     return (
         <div className="d-flex justify-content-center align-items-center py-5">
             <div className="card bg-dark text-light p-4">
-                <h2 className="mb-4 text-center">Login</h2>
-                <form>
-                    <div className="mb-3">
-                        <label className="form-label">Email: </label>
-                        <input type="email" className="form-control" placeholder="Enter your email" required />
-                    </div>
-                    <br></br>
-                    <div className="mb-3">
-                        <label className="form-label">Password: </label>
-                        <input type="password" className="form-control" placeholder="Enter your password" required />
-                    </div>
-                    <br></br>
-                    <Button text="Login" classes="graybutton" />
-                </form>
+                <div class="login">
+                    <h1>Login</h1>
+                    <form action="/auth" method="post">
+                        <label for="username">
+                            <i class="fas fa-user"></i>
+                        </label>
+                        <input type="text" name="username" placeholder="Username" id="username" required />
+                        <label for="password">
+                            <i class="fas fa-lock"></i>
+                        </label>
+                        <input type="password" name="password" placeholder="Password" id="password" required />
+                        <input type="submit" value="Login" />
+                    </form>
+                </div>
             </div>
         </div>
     )

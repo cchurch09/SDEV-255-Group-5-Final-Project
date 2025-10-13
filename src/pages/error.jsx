@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 
-export default function errorFound(){
+export default function ErrorFound(){
     return (
         <div className="text-center py-5">
             <h2 className="fw-bold">404 - Page Not Found</h2>

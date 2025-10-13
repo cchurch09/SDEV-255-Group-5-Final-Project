@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { Button } from '../resources/Boiler';
-import campus1 from '../photos/campus1.jpg';
-import office1 from '../photos/office1.jpg';
-import professor1 from '../photos/professor1.jpg';
+import { NavLink } from 'react-router-dom'
+import { Button } from '../resources/Boiler'
+import campus1 from '../photos/campus1.jpg'
+import office1 from '../photos/office1.jpg'
+import professor1 from '../photos/professor1.jpg'
 
 export default function Home() {
     return (
@@ -17,8 +17,8 @@ export default function Home() {
                 </div>
             <p>Welcome to Class Map! A place for students and teachers to build their schedules.</p>
             <div className="mt-4 d-flex flex-column align-items-center gap-3">
-                <NavLink to="/signup" className="btn btn-primary btn-lg"><Button text="Log In" classes="purplebutton" /></NavLink>
-                <NavLink to="/schedule" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="graybutton" /></NavLink>
+                <NavLink to="/signup" className="btn btn-primary btn-lg"><Button text="Log In" classes="button-1" /></NavLink>
+                <NavLink to="/schedule" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="button-1" /></NavLink>
             </div>
         </div>
     )
