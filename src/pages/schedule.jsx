@@ -1,9 +1,6 @@
 import React from 'react'
 import { Button } from '../resources/Boiler';
 import { NavLink } from 'react-router-dom';
-import computerclass from '../photos/computer class.jpg';
-import scienceclass from '../photos/science class.jpg';
-import mathclass from '../photos/math class.jpg';
 import { courses } from '../scripts/script';
 
 const allCourses = await courses.fetchAll()

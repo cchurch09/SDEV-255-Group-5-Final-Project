@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
   background: 
     linear-gradient(to top, rgba(255,255,255,0) 0%, rgb(0, 0, 0) 60%),
-    url("/public/map.jpg"); 
+    url("/src/photos/map.jpg"); 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
@@ -140,4 +140,14 @@ a {
 .login form input[type="submit"]:hover {
 background-color: #2868c7;
   transition: background-color 0.2s;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0);
+  color: white;
+  text-align: center;
 }

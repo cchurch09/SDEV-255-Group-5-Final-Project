@@ -36,7 +36,7 @@ function Header() {
 function Footer() {
     return (
         <footer>
-            <div>
+            <div class="footer">
                 <p>&copy; Copyright 2025</p>
             </div>
         </footer>
