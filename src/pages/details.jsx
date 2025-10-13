@@ -30,8 +30,13 @@ export default function Details() {
                 {loading ? (
                     <h1>Loading...</h1>
                 ) : (
+                    <div>
                     <h1>{posts.name}</h1>
-                  
+                    <h3>Taught by {posts.teacher}</h3>
+                    <p>{posts.description}</p>
+                    <p>Located at Classroom {posts.classroom}</p>
+                    <p>Starting Date: {posts.startDate.substring(0, 10)}</p>
+                    </div>
                 )}
             </div>
         </>
