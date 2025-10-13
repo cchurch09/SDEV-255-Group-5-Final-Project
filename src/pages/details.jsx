@@ -35,7 +35,7 @@ export default function Details() {
                     <h3>Taught by {posts.teacher}</h3>
                     <p>{posts.description}</p>
                     <p>Located at Classroom {posts.classroom}</p>
-                    <p>Starting Date: {posts.startDate.substring(0, 10)}</p>
+                    <p>Starting Date: {posts.startDate}</p>
                     </div>
                 )}
             </div>
