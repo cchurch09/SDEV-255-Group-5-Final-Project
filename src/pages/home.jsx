@@ -17,8 +17,8 @@ export default function Home() {
                 </div>
             <p>Welcome to Class Map! A place for students and teachers to build their schedules.</p>
             <div className="mt-4 d-flex flex-column align-items-center gap-3">
-                <NavLink to="/signup" className="btn btn-primary btn-lg"><Button text="Log In" classes="purplebutton" /></NavLink>
-                <NavLink to="/schedule" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="graybutton" /></NavLink>
+                <NavLink to="/signup" className="btn btn-primary btn-lg"><Button text="Log In" classes="button-1" /></NavLink>
+                <NavLink to="/schedule" className="btn btn-primary btn-lg"><Button text="View Schedule" classes="button-1" /></NavLink>
             </div>
         </div>
     )

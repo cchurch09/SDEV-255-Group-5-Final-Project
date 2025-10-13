@@ -21,7 +21,7 @@ export default function AddCourse(){
     }
 
     return (
-    <div>
+    <div className="d-flex justify-content-center align-items-center py-5">
     <h1>Add a course</h1>
     <form>
         <div>
@@ -49,7 +49,7 @@ export default function AddCourse(){
             <input type="date" id="startDate" />
         </div>
         <div>
-            <button onClick={createNewCourse}>Add Course</button>
+            <button class="button-1" onClick={createNewCourse}>Add Course</button>
         </div>
         <div id="error"></div>
     </form>

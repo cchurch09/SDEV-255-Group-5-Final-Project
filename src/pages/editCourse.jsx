@@ -89,7 +89,7 @@ export default function EditCourse(){
               <input type="date" id="startDate" value={inputs.startDate} onChange={handleChange} />
           </div>
           <div>
-              <button onClick={updateCourse}>Update Course</button>
+              <button class="button-1" onClick={updateCourse}>Update Course</button>
           </div>
           <div id="error"></div>
       </form>
