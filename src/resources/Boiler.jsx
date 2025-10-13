@@ -25,6 +25,9 @@ function Header() {
                     <NavLink to="/schedule">
                         Schedule
                     </NavLink>
+                    <NavLink to="/student">
+                        Student
+                    </NavLink>
                 </nav>
             <div>
                 <input type="text" name="search" id="search" placeholder='Search Anything' />
