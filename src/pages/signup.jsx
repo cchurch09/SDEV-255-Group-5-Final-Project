@@ -12,6 +12,7 @@ export default function Login() {
     })
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const [isLoggedin, setIsLoggedin] = useState(false)
 
     const { login, register } = useAuth()
     const navigate = useNavigate()
@@ -38,6 +39,7 @@ export default function Login() {
             }
 
             if (result.success) {
+                setIsLoggedin(true)
                 navigate('/')
             } else {
                 setError(result.error || 'Authentication failed')
@@ -47,6 +49,13 @@ export default function Login() {
         } finally {
             setLoading(false)
         }
+    }
+
+    const logout = () => {
+        localStorage.removeItem('token')
+        setToken(null)
+        setUser(null)
+        setIsLoggedin(false)
     }
 
     return (
@@ -71,111 +80,118 @@ export default function Login() {
                         </div>
                     )}
 
-                    <form onSubmit={handleSubmit}>
-
-                        <div class="input-container">
-                            <input
-                                type="username"
-                                name="username"
-                                className="form-control form-control-lg"
-                                value={formData.username}
-                                onChange={handleChange}
-                                required
-                            />
-                            <label>
-                                <i class="bi bi-person"></i>Username
-                            </label>
-                        </div>
-
-                        <div class="input-container">
-                            <input
-                                type="password"
-                                name="password"
-                                className="form-control form-control-lg"
-                                value={formData.password}
-                                onChange={handleChange}
-                                required
-                                minLength={6}
-                            />
-                            <label>
-                                <i className="bi bi-lock me-2"></i>Password
-                            </label>
-                        </div>
-
-                        {!isLogin && (
-                            <div class="glass-card">
+                    {!isLoggedin ? (
+                        <form onSubmit={handleSubmit}>
+                            <div class="input-container">
+                                <input
+                                    type="username"
+                                    name="username"
+                                    className="form-control form-control-lg"
+                                    value={formData.username}
+                                    onChange={handleChange}
+                                    required
+                                />
                                 <label>
-                                    <i className="bi bi-person-badge me-2"></i>I am a:
+                                    <i class="bi bi-person"></i>Username
                                 </label>
-                                <div className="d-flex gap-3">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="radio"
-                                            name="role"
-                                            id="roleStudent"
-                                            value="student"
-                                            checked={formData.role === 'student'}
-                                            onChange={handleChange}
-                                        />
-                                        <label className="form-check-label" htmlFor="roleStudent">
-                                            Student
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="radio"
-                                            name="role"
-                                            id="roleTeacher"
-                                            value="teacher"
-                                            checked={formData.role === 'teacher'}
-                                            onChange={handleChange}
-                                        />
-                                        <label className="form-check-label" htmlFor="roleTeacher">
-                                            Teacher
-                                        </label>
+                            </div>
+
+                            <div class="input-container">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className="form-control form-control-lg"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    required
+                                    minLength={6}
+                                />
+                                <label>
+                                    <i className="bi bi-lock me-2"></i>Password
+                                </label>
+                            </div>
+
+                            {!isLogin && (
+                                <div class="glass-card">
+                                    <label>
+                                        <i className="bi bi-person-badge me-2"></i>I am a:
+                                    </label>
+                                    <div className="d-flex gap-3">
+                                        <div className="form-check">
+                                            <input
+                                                className="form-check-input"
+                                                type="radio"
+                                                name="role"
+                                                id="roleStudent"
+                                                value="student"
+                                                checked={formData.role === 'student'}
+                                                onChange={handleChange}
+                                            />
+                                            <label className="form-check-label" htmlFor="roleStudent">
+                                                Student
+                                            </label>
+                                        </div>
+                                        <div className="form-check">
+                                            <input
+                                                className="form-check-input"
+                                                type="radio"
+                                                name="role"
+                                                id="roleTeacher"
+                                                value="teacher"
+                                                checked={formData.role === 'teacher'}
+                                                onChange={handleChange}
+                                            />
+                                            <label className="form-check-label" htmlFor="roleTeacher">
+                                                Teacher
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
-
-                        <button
-                            type="submit"
-                            className="btn btn-primary w-100 btn-lg mb-3 button-2"
-                            disabled={loading}
-                        >
-                            {loading ? (
-                                <>
-                                    <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                    {isLogin ? 'Signing In...' : 'Creating Account...'}
-                                </>
-                            ) : (
-                                <>
-                                    <i className="bi bi-box-arrow-in-right me-2"></i>
-                                    {isLogin ? 'Sign In' : 'Sign Up'}
-                                </>
                             )}
-                        </button>
 
-                        <div className="text-center mt-4">
-                            <p className="text-muted small mb-0">
-                                {isLogin ? "Don't have an account?" : "Already have an account?"}
-                                <a
-                                    href="#"
-                                    className="text-decoration-none ms-1"
-                                    style={{ color: '#667eea', fontWeight: '600' }}
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                        setIsLogin(!isLogin)
-                                        setError('')
-                                    }}
-                                >
-                                    {isLogin ? 'Sign up' : 'Sign in'}
-                                </a>
-                            </p>
-                        </div>
-                    </form>
+                            <button
+                                type="submit"
+                                className="btn btn-primary w-100 btn-lg mb-3 button-2"
+                                disabled={loading}
+                            >
+                                {loading ? (
+                                    <>
+                                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                        {isLogin ? 'Signing In...' : 'Creating Account...'}
+                                    </>
+                                ) : (
+                                    <>
+                                        <i className="bi bi-box-arrow-in-right me-2"></i>
+                                        {isLogin ? 'Sign In' : 'Sign Up'}
+                                    </>
+                                )}
+                            </button>
+
+                            <div className="text-center mt-4">
+                                <p className="text-muted small mb-0">
+                                    {isLogin ? "Don't have an account?" : "Already have an account?"}
+                                    <a
+                                        href="#"
+                                        className="text-decoration-none ms-1"
+                                        style={{ color: '#667eea', fontWeight: '600' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            setIsLogin(!isLogin)
+                                            setError('')
+                                        }}
+                                    >
+                                        {isLogin ? 'Sign up' : 'Sign in'}
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
+                    ) : ( <div>
+                    <h1>User is logged in</h1>
+                    <button onClickCapture={logout}>
+                        logout user
+                    </button>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>
