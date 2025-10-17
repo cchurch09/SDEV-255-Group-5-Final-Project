@@ -2,6 +2,7 @@ import React from "react";
 import {
     NavLink
 } from "react-router-dom";
+import { useAuth } from "../scripts/auth";
 
 function Header() {
     return (
@@ -29,9 +30,6 @@ function Header() {
                         Student
                     </NavLink>
                 </nav>
-            <div>
-                <input type="text" name="search" id="search" placeholder='Search Anything' />
-            </div>
         </header>
     )
 }
@@ -39,7 +37,7 @@ function Header() {
 function Footer() {
     return (
         <footer>
-            <div>
+            <div class = "footer">
                 <p>&copy; Copyright 2025</p>
             </div>
         </footer>

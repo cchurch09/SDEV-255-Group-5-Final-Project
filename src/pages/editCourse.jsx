@@ -64,29 +64,29 @@ export default function EditCourse(){
         <>
       <h1>Edit course</h1>
       <form>
-          <div>
-              <label for="prefix">Prefix:</label>
+          <div className='input-container'>
               <input type="text" id="prefix" value={inputs.prefix} onChange={handleChange} />
+              <label for="prefix">Prefix:</label>
           </div>
-          <div>
-              <label for="name">Name:</label>
+          <div className='input-container'>
               <input type="text" id="name" value={inputs.name} onChange={handleChange} />
+              <label for="prefix">Name:</label>
           </div>
-          <div>
-              <label for="teacher">Teacher:</label>
+          <div className='input-container'>              
               <input type="text" id="teacher" value={inputs.teacher} onChange={handleChange} />
+              <label for="teacher">Teacher:</label>
           </div>
-          <div>
-              <label for="classroom">Classroom:</label>
+          <div className='input-container'>              
               <input type="number" min="1" max="999" id="classroom" value={inputs.classroom} onChange={handleChange} />
+              <label for="classroom">Classroom:</label>
           </div>
-          <div>
-              <label for="description">Description:</label>
+          <div className='input-container'>              
               <textarea name="description" id="description" onChange={handleChange} defaultValue={inputs.description} ></textarea>
+              <label for="description">Description:</label>
           </div>
-          <div>
-              <label for="startDate">Starting Date:</label>
+          <div className='input-container'>              
               <input type="date" id="startDate" value={inputs.startDate} onChange={handleChange} />
+              <label for="startDate">Starting Date:</label>
           </div>
           <div>
               <button class="button-1" onClick={updateCourse}>Update Course</button>

@@ -4,6 +4,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { AuthProvider } from "./scripts/auth";
+import { CartProvider } from "./scripts/cart";
 import About from "./pages/about"
 import Schedule from "./pages/schedule"
 import SignUp from "./pages/signup"
@@ -16,6 +18,8 @@ import Student from "./pages/student";
 
 function App() {
   return (
+    <AuthProvider>
+    <CartProvider>
     <div>
       <Header />
       <main>
@@ -36,6 +40,8 @@ function App() {
 
       <Footer />
     </div>
+    </CartProvider>
+    </AuthProvider>
   )
 }
 
