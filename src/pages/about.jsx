@@ -8,7 +8,7 @@ export default function About() {
     <div>
       <br></br>
       <div className='card-container'>
-        <div className="glass-card p-5 mb-5 fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <div className="glass-card p-5 mb-5 fade-in-up">
           <h3 className="fw-bold mb-4" style={{fontSize: '2.5rem'}}>Class Map</h3>
           <p className="text-light mb-0" style={{ fontSize: '1.8rem', lineHeight: '1.8' }}>
             Class Map is designed to provide a seamless and intuitive experience for both teachers and students.
@@ -19,7 +19,7 @@ export default function About() {
           <p style={{ fontSize: '0.8rem', lineHeight: '1.8' }}>Questions? Email us at Group5@final.com </p>
         </div>
 
-        <div className="row g-4 mb-5 fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <div className="row g-4 mb-5 fade-in-up">
           <div className="col-md-6">
             <div className="glass-card p-4 h-100">
               <h4 className="fw-bold mb-3">
@@ -50,7 +50,7 @@ export default function About() {
         </div>
 
       </div>
-      <div className="glass-card p-5 mb-5 fade-in-up" style={{ animationDelay: '0.4s' }}>
+      <div className="glass-card p-5 mb-5 fade-in-up">
         <h3>Real Life Testimonials</h3>
         <table>
           <tr>

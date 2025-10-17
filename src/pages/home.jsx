@@ -8,7 +8,7 @@ import student3 from '../photos/student3.jpg'
 
 export default function Home() {
     return (
-        <div className="text-center py-5">
+        <div className="text-center py-5 fade-in-up">
             <h1 className="display-4 fw-bold">Class Map</h1>
             <h3 class name ="mt-5"></h3>
                 <div className="scroll-gallery">
