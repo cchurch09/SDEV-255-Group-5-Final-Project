@@ -21,9 +21,9 @@ export const AuthProvider = ({ children }) => {
       const storedToken = localStorage.getItem('token');
       if (storedToken) {
         try {
-          const response = await fetch(`${API_BASE_URL}/me`, {
+          const response = await fetch(`${API_BASE_URL}/user`, {
             headers: {
-              'Authorization': `Bearer ${storedToken}`
+              'x-auth': `Bearer ${storedToken}`
             }
           });
 
