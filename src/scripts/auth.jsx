@@ -1,8 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext(null);
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://group-5-final-project-backend.onrender.com';
-const AUTH_API_URL = `${API_BASE_URL}/api/auth`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://group-5-final-project-backend.onrender.com/api';
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -22,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       const storedToken = localStorage.getItem('token');
       if (storedToken) {
         try {
-          const response = await fetch(`${AUTH_API_URL}/me`, {
+          const response = await fetch(`${API_BASE_URL}/me`, {
             headers: {
               'Authorization': `Bearer ${storedToken}`
             }
@@ -50,14 +49,14 @@ export const AuthProvider = ({ children }) => {
     loadUser();
   }, []);
 
-  const login = async (email, password) => {
+  const login = async (username, password) => {
     try {
-      const response = await fetch(`${AUTH_API_URL}/auth`, {
+      const response = await fetch(`${API_BASE_URL}/auth`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ username, password })
       });
 
       const data = await response.json();
@@ -75,15 +74,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (email, password, role) => {
+  const register = async (username, password, role) => {
     try {
-      console.log('Registering at:', `${AUTH_API_URL}/user`);
-      const response = await fetch(`${AUTH_API_URL}/user`, {
+      console.log('Registering at:', `${API_BASE_URL}/user`);
+      const response = await fetch(`${API_BASE_URL}/user`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password, role })
+        body: JSON.stringify({ username, password, role })
       });
 
       const data = await response.json();

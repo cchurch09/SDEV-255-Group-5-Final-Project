@@ -3,16 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../scripts/auth.jsx'
 import userIcon from '../photos/userIcon.png'
 
-export default function Login(){
+export default function Login() {
     const [isLogin, setIsLogin] = useState(true)
     const [formData, setFormData] = useState({
-        email: '',
+        username: '',
         password: '',
         role: 'student'
     })
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    
+
     const { login, register } = useAuth()
     const navigate = useNavigate()
 
@@ -32,9 +32,9 @@ export default function Login(){
         try {
             let result
             if (isLogin) {
-                result = await login(formData.email, formData.password)
+                result = await login(formData.username, formData.password)
             } else {
-                result = await register(formData.email, formData.password, formData.role)
+                result = await register(formData.username, formData.password, formData.role)
             }
 
             if (result.success) {
@@ -55,7 +55,7 @@ export default function Login(){
                 <div className="glass-card p-5 fade-in-up">
                     <div className="text-center mb-4">
                         <div className="mb-3">
-                           <img src={userIcon} alt="icon" width="100" height="100"/>
+                            <img src={userIcon} alt="icon" width="100" height="100" />
                         </div>
                         <h2 className="fw-bold mb-2">
                             {isLogin ? 'Welcome Back' : 'Create Account'}
@@ -74,27 +74,27 @@ export default function Login(){
                     <form onSubmit={handleSubmit}>
 
                         <div class="input-container">
-                            <input 
-                                type="email" 
-                                name="email"
-                                className="form-control form-control-lg" 
-                                value={formData.email}
+                            <input
+                                type="username"
+                                name="username"
+                                className="form-control form-control-lg"
+                                value={formData.username}
                                 onChange={handleChange}
-                                required 
+                                required
                             />
                             <label>
-                                <i className="bi bi-envelope me-2"></i>Email Address
+                                <i class="bi bi-person"></i>Username
                             </label>
                         </div>
 
                         <div class="input-container">
-                            <input 
-                                type="password" 
+                            <input
+                                type="password"
                                 name="password"
-                                className="form-control form-control-lg" 
+                                className="form-control form-control-lg"
                                 value={formData.password}
                                 onChange={handleChange}
-                                required 
+                                required
                                 minLength={6}
                             />
                             <label>
@@ -109,10 +109,10 @@ export default function Login(){
                                 </label>
                                 <div className="d-flex gap-3">
                                     <div className="form-check">
-                                        <input 
-                                            className="form-check-input" 
-                                            type="radio" 
-                                            name="role" 
+                                        <input
+                                            className="form-check-input"
+                                            type="radio"
+                                            name="role"
                                             id="roleStudent"
                                             value="student"
                                             checked={formData.role === 'student'}
@@ -123,10 +123,10 @@ export default function Login(){
                                         </label>
                                     </div>
                                     <div className="form-check">
-                                        <input 
-                                            className="form-check-input" 
-                                            type="radio" 
-                                            name="role" 
+                                        <input
+                                            className="form-check-input"
+                                            type="radio"
+                                            name="role"
                                             id="roleTeacher"
                                             value="teacher"
                                             checked={formData.role === 'teacher'}
@@ -140,8 +140,8 @@ export default function Login(){
                             </div>
                         )}
 
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             className="btn btn-primary w-100 btn-lg mb-3 button-2"
                             disabled={loading}
                         >
@@ -161,10 +161,10 @@ export default function Login(){
                         <div className="text-center mt-4">
                             <p className="text-muted small mb-0">
                                 {isLogin ? "Don't have an account?" : "Already have an account?"}
-                                <a 
-                                    href="#" 
-                                    className="text-decoration-none ms-1" 
-                                    style={{color: '#667eea', fontWeight: '600'}}
+                                <a
+                                    href="#"
+                                    className="text-decoration-none ms-1"
+                                    style={{ color: '#667eea', fontWeight: '600' }}
                                     onClick={(e) => {
                                         e.preventDefault()
                                         setIsLogin(!isLogin)
