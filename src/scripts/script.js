@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react';
-
 export const backendUrl = 'https://group-5-final-project-backend.onrender.com/api/courses'
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');
   const headers = { 'Content-Type': 'application/json' };
   if (token) {
-    headers['x-auth'] = `Bearer ${token}`;
+    headers['x-auth'] = `${token}`;
   }
   return headers;
 }

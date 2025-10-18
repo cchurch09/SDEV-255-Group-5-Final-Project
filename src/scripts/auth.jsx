@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
         try {
           const response = await fetch(`${API_BASE_URL}/user`, {
             headers: {
-              'x-auth': `Bearer ${storedToken}`
+              'x-auth': `${storedToken}`
             }
           });
 

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../scripts/auth.jsx'
 import userIcon from '../photos/userIcon.png'
 
+
+
 export default function Login() {
     const [isLogin, setIsLogin] = useState(true)
     const [formData, setFormData] = useState({
@@ -15,7 +17,6 @@ export default function Login() {
     const [isLoggedin, setIsLoggedin] = useState(false)
 
     const { login, register } = useAuth()
-    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setFormData({
@@ -40,7 +41,6 @@ export default function Login() {
 
             if (result.success) {
                 setIsLoggedin(true)
-                navigate('/')
             } else {
                 setError(result.error || 'Authentication failed')
             }
@@ -51,18 +51,37 @@ export default function Login() {
         }
     }
 
-    const logout = () => {
-        localStorage.removeItem('token')
-        setToken(null)
-        setUser(null)
-        setIsLoggedin(false)
+    const logout = (e) => {
+        e.preventDefault()
+        setLoading(true)
+        setError('')
+
+        try {
+            localStorage.removeItem('token')
+            setIsLoggedin(false)
+        }
+        catch (err) {
+            setError('An unexpected error occurred')
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
         <div className="d-flex justify-content-center align-items-center py-5">
             <div className="col-md-6 col-lg-5">
                 <div className="glass-card p-5 fade-in-up">
-                    <div className="text-center mb-4">
+
+                    {error && (
+                        <div className="alert alert-danger" role="alert">
+                            {error}
+                        </div>
+                    )}
+                    
+
+                    {!isLoggedin ? (
+                        <div>
+                            <div className="text-center mb-4">
                         <div className="mb-3">
                             <img src={userIcon} alt="icon" width="100" height="100" />
                         </div>
@@ -70,17 +89,9 @@ export default function Login() {
                             {isLogin ? 'Welcome Back' : 'Create Account'}
                         </h2>
                         <p className="text-muted">
-                            {isLogin ? 'Sign in to continue to Course Manager' : 'Register to get started'}
+                            {isLogin ? 'Sign in to continue to Class Map' : 'Sign up to get started'}
                         </p>
                     </div>
-
-                    {error && (
-                        <div className="alert alert-danger" role="alert">
-                            {error}
-                        </div>
-                    )}
-
-                    {!isLoggedin ? (
                         <form onSubmit={handleSubmit}>
                             <div class="input-container">
                                 <input
@@ -185,11 +196,12 @@ export default function Login() {
                                 </p>
                             </div>
                         </form>
-                    ) : ( <div>
-                    <h1>User is logged in</h1>
-                    <button onClickCapture={logout}>
-                        logout user
-                    </button>
+                        </div>
+                    ) : (<div>
+                        <h1>You're logged in!</h1>
+                        <button onClickCapture={logout} className="btn btn-primary w-100 btn-lg mb-3 button-2">
+                            Logout
+                        </button>
                     </div>
                     )}
                 </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {
     NavLink
 } from "react-router-dom";
-import { useAuth } from "../scripts/auth";
+
 
 function Header() {
     return (
@@ -24,10 +24,10 @@ function Header() {
                         Sign Up
                     </NavLink>
                     <NavLink to="/schedule">
-                        Schedule
+                        {(localStorage.getItem("token")) ? 'Schedule' : null}
                     </NavLink>
                     <NavLink to="/student">
-                        Student
+                    {(localStorage.getItem("token")) ? 'Cart' : null}
                     </NavLink>
                 </nav>
         </header>

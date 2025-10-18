@@ -14,9 +14,13 @@ export default function AddCourse() {
             startDate: document.querySelector('#startDate').value
         }
 
+        try {
         courses.create(newCourse)
-
         document.querySelector("form").reset()
+        }
+        catch (error) {
+            console.error(error)
+        }
 
     }
 
