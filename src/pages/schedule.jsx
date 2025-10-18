@@ -8,7 +8,6 @@ const allCourses = await courses.fetchAll()
 
 
 export default function Schedule(){
-    const { isTeacher, isAuthenticated } = useAuth();
 
 
 function displayCourses() {
@@ -26,7 +25,6 @@ function displayCourses() {
     return <ol>{listItems}</ol>
 }
 
-// if isTeacher returns false, defaults to browse available courses
 return (
     <div className="py-4 fade-in-up">
         <h2>Available Courses</h2>

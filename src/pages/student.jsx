@@ -19,7 +19,7 @@ function Student() {
   };
 
   return (
-    <div className="student-page">
+    <div className="student-page py-4 fade-in-up">
       <h1>Student Dashboard</h1>
       <div className="add-class">
         <input
