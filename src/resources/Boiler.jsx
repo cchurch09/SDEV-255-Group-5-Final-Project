@@ -21,7 +21,7 @@ function Header() {
                         About
                     </NavLink>
                     <NavLink to="/signup">
-                        Sign Up
+                    {!(localStorage.getItem("token")) ? 'Login' : null}
                     </NavLink>
                     <NavLink to="/schedule">
                         {(localStorage.getItem("token")) ? 'Schedule' : null}

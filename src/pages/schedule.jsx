@@ -34,7 +34,7 @@ return (
             {displayCourses()}
         </div>
         <div>
-        <NavLink to="/addcourse" className="btn btn-primary btn-lg"><Button text="Add Course" classes="button-1" /></NavLink>
+        <NavLink to="/addcourse"><Button text="Add Course" classes="btn btn-primary btn-lg button-1" /></NavLink>
         </div>
     </div>
     )

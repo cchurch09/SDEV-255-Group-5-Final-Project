@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, redirect, useNavigate } from 'react-router-dom'
 import { useAuth } from '../scripts/auth.jsx'
 import userIcon from '../photos/userIcon.png'
 
@@ -14,7 +14,6 @@ export default function Login() {
     })
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const [isLoggedin, setIsLoggedin] = useState(false)
 
     const { login, register } = useAuth()
 
@@ -25,6 +24,8 @@ export default function Login() {
         })
         setError('')
     }
+
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -40,7 +41,8 @@ export default function Login() {
             }
 
             if (result.success) {
-                setIsLoggedin(true)
+                navigate("/", { replace: true });
+                window.location.reload(true)
             } else {
                 setError(result.error || 'Authentication failed')
             }
@@ -57,13 +59,15 @@ export default function Login() {
         setError('')
 
         try {
-            localStorage.removeItem('token')
-            setIsLoggedin(false)
+            if (localStorage.getItem('token')) {
+                localStorage.removeItem('token')
+            }
         }
         catch (err) {
             setError('An unexpected error occurred')
         } finally {
             setLoading(false)
+            window.location.reload(true)
         }
     }
 
@@ -79,7 +83,7 @@ export default function Login() {
                     )}
                     
 
-                    {!isLoggedin ? (
+                    {!(localStorage.getItem('token')) ? (
                         <div>
                             <div className="text-center mb-4">
                         <div className="mb-3">

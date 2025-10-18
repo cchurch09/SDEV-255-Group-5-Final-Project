@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       const storedToken = localStorage.getItem('token');
       if (storedToken) {
         try {
-          const response = await fetch(`${API_BASE_URL}/user`, {
+          const response = await fetch(`${API_BASE_URL}/status`, {
             headers: {
               'x-auth': `${storedToken}`
             }

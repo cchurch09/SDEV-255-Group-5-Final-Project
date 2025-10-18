@@ -303,6 +303,14 @@ body::before {
   color: #FFFFFF;
 }
 
+.btn-lg {
+  background: #a232d6;
+}
+
+.btn-lg2 {
+  background: #8b8b8b;
+}
+
 .btn-primary::before {
   content: '';
   position: absolute;
@@ -338,6 +346,36 @@ body::before {
   padding: 0.5rem 0.8rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+
+.search {
+  position: relative;
+  overflow: hidden;
+  background-color: #6081be;
+  backdrop-filter: blur(2px);
+}
+.search-icon {
+  position: absolute;
+  right: 27px;
+  top: 25px;
+  background-color: transparent;
+  color: #6081be;
+  cursor: pointer;
+}
+input[type=text] {
+  padding: 9px;
+  border: none;
+  margin: 16px 14px;
+  font-size: 18px;
+  background-color: #adb8f4;
+  text-align: left;
+  text-indent: 8px;
+  outline: none;
+}
+.search, input[type=text] {
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  
 }
 
 .form-control {
