@@ -8,9 +8,9 @@ function Student() {
 
   // Add a class to the list
   const addClass = () => {
-    if (className.trim() === "") return; 
+    if (className.trim() === "") return;
     setClassList([...classList, className]);
-    setClassName(""); 
+    setClassName("");
   };
 
   // Optional: remove a class
@@ -19,16 +19,17 @@ function Student() {
   };
 
   return (
-    <div className="student-page">
+    <div className="student-page py-4 fade-in-up">
       <h1>Student Dashboard</h1>
       <div className="add-class">
         <input
+          class="searchinput search"
           type="text"
           placeholder="Enter class name"
           value={className}
           onChange={(e) => setClassName(e.target.value)}
         />
-        <Button text="Add Class" classes="btn" onClick={addClass} />
+        <Button text="Add Class" classes="button-1 btn btn-primary btn-lg" onClick={addClass} />
       </div>
 
       <h2>Your Classes</h2>
