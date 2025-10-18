@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { cartService } from './cartAPI.js';
+import { scheduleService } from './cartAPI.js';
 import { courses } from './script.js';
 import { useAuth } from './auth.jsx';
 
@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
   const loadCart = async () => {
     try {
       setLoading(true);
-      const data = await cartService.getCart();
+      const data = await scheduleService.getCart();
       setCart(data);
     } catch (error) {
       console.error('Error loading cart:', error);
@@ -52,7 +52,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (courseId) => {
     try {
-      const response = await cartService.addToCart(courseId);
+      const response = await scheduleService.addToCart(courseId);
       setCart(response.cart);
       return { success: true, message: 'Course added to cart' };
     } catch (error) {
@@ -62,7 +62,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = async (courseId) => {
     try {
-      const response = await cartService.removeFromCart(courseId);
+      const response = await scheduleService.removeFromCart(courseId);
       setCart(response.cart);
       return { success: true, message: 'Course removed from cart' };
     } catch (error) {
@@ -72,7 +72,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = async () => {
     try {
-      await cartService.clearCart();
+      await scheduleService.clearCart();
       setCart([]);
       return { success: true, message: 'Cart cleared' };
     } catch (error) {
